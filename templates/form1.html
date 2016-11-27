@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-2">
+     <ul class="nav nav-pills nav-stacked">
+  <li><a href="#/viewpadh">पद  खोजी गर्नुहोस्</a></li>
+  <li class="active"><a href="#/form1">कार्यालय विवरण</a></li>
+  <li ><a href="#/form2">पद  दर्ता फाराम</a></li>
+    
+</ul>
+</div>
+<div class="col-sm-10" ng-controller = "anusuchiCntrl">
+	<h4>अनुसुची-१</h4>
+	<h4>पद दर्ता  फाराम</h4>
+	<h4>(दफा ५ को उप दफा १(क) बमोजिम)</h4>
+  <form method ="post" class="from-group" >
+    <table class="table">
+    	<h4>कार्यालय तथा दरबन्दी विवरण सम्बन्धी ढाचा</h4>
+    	<tr><td>क) कार्यालय सम्बन्धी विवरण </td><td></td></tr>
+      <tr><td>कार्यालय को नाम (नेपालीमा): <br> <input class="form-control" ng-model ="f1.name" name = "name"></td><td>फ्याक्स:<br><input class="form-control" ng-model="f1.fax_no" name="fax_no"></td></tr>
+       <tr><td>कार्यालय को नाम (अङ्रेजीमा): <br> <input class="form-control" ng-model ="f1.name_eng" name = "name_eng" ></td><td>जिल्ला: <br> 
+            <input class="form-control" ng-model="f1.district" name = "district">
+       </td></tr>
+       <tr>  <td> ठेगाना:<br><input class="form-control" ng-model="f1.address" name = "address"></td>
+       <td> स्थान:<br> <input class="form-control" ng-model="f1.position" name = "position"></td> </tr>
+<tr> <td>वडा नं.:<br> <input class="form-control" ng-model="f1.ward_no"name = "ward_no"> </td>
+<td> फोन नं.:<br> <input class="form-control" ng-model="f1.phone_no" name = "phone_no"></td></tr>
+<tr> <td>इमेल: <br> <input class="form-control" ng-model="f1.email" name = "email"></td> <td> वेबसाईट <br> <input class="form-control" ng-model="f1.website" name = "website"></td> </tr>
+<tr> <td> <button class="btn btn-primary" name = "submit" ng-click="anusuchiSave()">सुरक्षित गर्नुहोस्</button> </td> <td></td> </tr>
+    </table>
+
+  </form>
+</div>
+</div>
+</div>

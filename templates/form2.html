@@ -1,0 +1,75 @@
+<div class="container" ng-controller="form2Cntrl">
+  <div class="row" ng-controller = "form2Update">
+  <div class="col-sm-2">
+    <ul class="nav nav-pills nav-stacked">
+   <li><a href="#/viewpadh">पद  खोजी गर्नुहोस्</a></li>
+  <li ><a href="#/form1">कार्यालय विवरण</a></li>
+  <li class="active"><a href="#/form2">पद  दर्ता फाराम</a></li>
+    
+</ul>
+  
+</div>
+<div class="col-sm-10" >
+	<br>
+	<div >
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>
+		<button class="btn btn-primary" go-click="/form3">नया कर्मचारी दर्ता गर्नुहोस्</button>
+		
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<div class="alert alert-success" ng-show="showSuccessAlert">
+        <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>रेकोर्ड सफलतापुर्बक सुरक्षित भयो !</strong></div>
+	<form method ="post"  class="from-group" name="myform" role="form" novalidate>
+		<table id="tarik" class="table" border="1px"> <tr>
+			<h5>ख ) कार्यालय दरबन्दी तेरिज:</h5> 
+				<th>सि नं.:</th>
+				<th>पदको किसिम</th>
+				<th>स्तर </th>
+				<th>सविक पढ्</th>
+				<th>सुरु पद सिर्जना भएको मिती </th>
+				<th>पछील्लो अध्यवधिक मिती</th>
+				<th>थप</th>
+				<th>घट</th>
+				<th>खुद कायम</th>
+				<th>पद सन्केत नं.</th>
+				<th>कैफियत</th>
+				
+			</tr>
+			<tr>
+				<td><input class="form-control" ng-model="f2.S_no" name="S_no"></td>
+				<td><input class="form-control" ng-model="f2.pos_type" name="pos_type"></td>
+				<td><input class="form-control" ng-model ="f2.taha" name="taha"></td>
+				<td><input class="form-control" ng-model = "f2.sabik_padh" name="sabik_padh"></td>
+				<td><input class="form-control" ng-model = "f2.start_date" name="start_date"></td>
+				<td> <input class="form-control" ng-model = "f2.last_date" name ="last_date"></td>
+				<td><input class="form-control" ng-model ="f2.thap" name="thap"></td>
+				<td><input class="form-control" ng-model = "f2.ghat" name="ghat"></td>
+				<td><input class="form-control" ng-model ="f2.khud_kayam"name="khud_kayam"></td>
+				<td><input class="form-control" ng-model = "f2.padh_sanket_no" name="padh_sanket_no"></td>
+				<td><input class="form-control" ng-model ="f2.remarks" name="remarks"></td>
+				
+			</tr>
+			<tr ng-repeat = "t in terij">
+				<td>{{t.S_no}}</td>
+				<td>{{t.pos_type}}</td>
+				<td>{{t.taha}}</td>
+				<td>{{t.sabik_padh}}</td>
+				<td>{{t.start_date}}</td>
+				<td>{{t.last_date}}</td>
+				<td>{{t.thap}}</td>
+				<td>{{t.ghat}}</td>
+				<td>{{t.khud_kayam}}</td>
+				<td>{{t.padh_sanket_no}}</td>
+				<td>{{t.remarks}}</td>
+				
+			</tr>
+			
+		</table>
+		<button class="btn btn-primary" ng-click="updatepadinfo()" ng-hide="padinfo">अपडेट</button>
+		<button name="submit" class="btn btn-primary" ng-click="addandSubmit()" ng-show="padinfo"> थप्नुहोस र सुरक्षित गर्नुहोस्   </button>
+		<button name="submit" class="btn btn-primary" ng-click="submitForm2()" ng-show="padinfo"> सुरक्षित गर्नुहोस् </button>
+	</form>
+
+</div>
+</div>
+</div>

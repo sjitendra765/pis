@@ -1,0 +1,31 @@
+<style type="text/css">
+	#deco{
+		background-color: lightgrey;
+		height:100px;
+		margin-top:10px;
+	}
+	#deco button{
+		margin-left: 30%;
+		margin-top:30px;
+		font-size: 30px;
+	}
+</style>
+<div class="container" ng-controller = "listCntrl">
+	<br>
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	
+	<button class="btn btn-info" go-click="/editpass">पासवोर्ड परिवर्तन गर्नुहोस्</button>
+	<br>
+	<div id="deco">
+		<button class="btn btn-primary" go-click="/viewpadh">पद विवरण हेर्नुहोस्</button>
+	</div>
+	<div id="deco">
+		<button class="btn btn-primary" go-click="/viewpdetail">व्यैक्तिक सुची हेर्नुहोस्</button>
+	</div>
+	<div id="deco">
+		<button class="btn btn-primary" go-click="/form2">पद दर्ता गर्नुहोस्</button>
+	</div>
+	<div id="deco">
+		<button class="btn btn-primary" go-click="/form3">व्यैक्तिक विवरण दर्ता गर्नुहोस</button>
+	</div>
+</div>

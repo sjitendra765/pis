@@ -1,0 +1,135 @@
+<script type="text/javascript">
+     function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;             
+            
+        }
+  </script>
+  
+
+  <div ng-controller="viewpadRecord">
+  	<form action="js/demo.php" method ="post">
+  	<input name="id" ng-hide="hidden = true" ng-model="f2.id">
+  	<button name="submit" id="submit" class="btn btn success"> print xls</button>
+  </form>
+<div><input type="button" value="Print"  onclick="javascript:printDiv('printablediv')" /></div>
+  <div id="printablediv" >
+  	
+  	<div class="row" >
+  		<div class="col-sm-12">
+  	<h4>पद दर्ता फाराम</h4>
+		
+	</div> 
+	<p>(दफा ५ को उप दफा (क) बमोजिम </p>
+	<table class="table" border="1px" >
+		<tr>
+		<th width= "50%">कार्यालय तथा दरबन्दी विवरण सम्बन्धी ढाचा</th>
+		<th width= "50%"></th>
+		</tr>
+		<tr>
+			<td>क. कार्यालय सम्बन्धी विवरण:</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>कार्यलयको नाम(नेपालीमा):{{f1.name}}</td>
+			<td>फ्याक्स न.{{f1.fax_no}}</td>
+		</tr>
+		<tr>
+			<td>कार्यलयको नाम(अंग्रेजीमा):{{f1.name_eng}}</td>
+			<td>जिल्ला:{{f1.district}}</td>
+		</tr>
+		<tr>
+			<td>सुरु पद सिर्जना भएको मिति:{{f1.start_date}}</td>
+			<td>ठेगाना</td>
+		</tr>
+		<tr>
+			<td>पछिल्लो अध्यावधि मिति:{{f1.last_date}}</td>
+			<td>वडा न.:{{f1.wardno}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>स्थान:{{f1.position}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>फोन न.:{{f1.phone}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>इमेल:{{f1.email}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>वेबसाइट:{{f1.website}}</td>
+		</tr>
+
+	</table>
+	<p>ख. कार्यालय दरबन्दी तेरिज</p>
+	<table  class="table" border="1px"> <tr>
+				<th>सि न:</th>
+				<th>पढ्को किसिम</th>
+				<th>स्तर </th>
+				<th>सविक पढ्</th>
+				<th>थप</th>
+				<th>घट</th>
+				<th>खुद कायम</th>
+				<th>पढ् सन्केत न</th>
+				<th>कैफियत</th>
+				
+			</tr>
+			<tr>
+				<td>{{f2.S_no}}</td>
+				<td>{{f2.pos_type}}</td>
+				<td>{{f2.taha}}</td>
+				<td>{{f2.sabik_padh}}</td>
+				<td>{{f2.thap}}</td>
+				<td>{{f2.ghat}}</td>
+				<td>{{f2.khud_kayam}}</td>
+				<td>{{f2.padh_sanket_no}}</td>
+				<td>{{f2.remarks}}</td>
+				
+			</tr>
+			
+		</table>
+		<table class="table" border ="1px" >
+			<tr>
+				<td width= "50%">सम्बन्धित स्थानीय निकायको तर्फबाट उपरोक्त निर्णय संलग्न राखी पद दर्ता गरी जानकारी दिनुहुन अनुरोध छ |</td>
+				<td width= "50%">जनशक्ति विकास तथा स्थानीय निकाय कर्मचारी अभिलेख शाखाबाट माथि उल्लेख पद विधुतीय माध्यमबाट समेत दरबन्दी व्यवस्थापन प्रणालीमा प्रविशिस्ट गरी कार्यालय संकेत ..........मा पद दर्ता गरिएको प्रमाणित गरिएको छ |</td>
+			</tr>
+		</table>
+		<table class="table" border=1>
+			<tr>
+				<td>दस्तखत:</td>
+				<td>दस्तखत:</td>
+			</tr>
+			<tr>
+				<td>नाम:</td>
+				<td>नाम:</td>
+			</tr>
+			<tr>
+				<td>पद:</td>
+				<td>पद:</td>
+			</tr>
+			<tr>
+				<td width= "50%">पद:</td>
+				<td width= "50%">प्रमाणित गर्ने अधिकृत:</td>
+			</tr>
+		</table>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,152 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">	
+	<link rel="stylesheet" type="text/css" media="print" href="print.css">
+	<script type="text/javascript" src = "lib/angular.min.js"></script>
+	<style type="text/css">
+	#printablediv{
+			padding:50px;
+			margin:100px;
+		}</style>
+	<script type="text/javascript">
+		 function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;          
+        }
+	</script>
+</head>
+<body ng-app>
+	<div><input type="button" value="Print" onclick="javascript:printDiv('printablediv')" /></div>
+	<div id="printablediv">
+	<div id="title">
+	<h4>वैयत्यिक विवरण</h4>
+	<p>नेपाल सरकार</p>
+	<p>रत्ननगर जि. वि. स./महा/नगर./गा.वि.स. </p>
+	</div>
+<div class="container">
+  <div id="nametitle" class="row">
+
+		<div class="col-sm-6">
+			<p>स्थानीय निकाय कर्मचारीको पुरा नाम , थर: {{p.first_name}} {{p.midlle.name}} {{p.last_name}}</p>
+
+		</div>
+		<div class"col-sm-6">image </div>
+
+	</div>
+	<div  class="row">
+
+		<div class="col-sm-6">
+			<p>०२ स्थायी ठेगाना:</p>
+			<p>&nbsp&nbsp अंचल: {{p.p_zone}}</p>
+			<p>&nbsp&nbsp जिल्ला: {{p.p_district}}</p>
+			<p>&nbsp&nbsp गाउ/नगर: {{p.p_village}}</p>
+			<p>&nbsp&nbsp वार्ड नम्बर: {{p.p_wardno}}</p>
+			<p>&nbsp&nbsp गाउ/टोल: {{p.p_tole}}</p>
+			<p>&nbsp&nbsp ब्लाक नम्बर: {{p.p_blockno}}</p>
+			<p>०४  घर भएको जिल्ला : {{p.p_district}}</p>
+			<p>०६  ५८ वर्ष उमेर पुग्ने मिति:</p>
+			<p>०८  नागरिकता:</p>
+			<p>१०  लिङ्ग:</p>
+			<p>१२  विवाहित भए पति/पत्नीको नाम/: <br>&nbsp&nbsp&nbsp&nbsp श्री/श्रीमती</p>
+			<p>१४  छोराको संख्या:</p>
+			<p>१६  बाबुको नाम:</p>
+			<p>१८  बाजेको नाम:</p>
+			<p>२०  आमाको पेशा:</p>
+			<p>२१  इच्याएको व्यक्तिको नाम, थर:</p>
+			<p>&nbsp&nbsp अंचल:</p>
+			<p>&nbsp&nbsp जिल्ला</p>
+			<p>&nbsp&nbsp गाउ/नगर</p>
+			<p>&nbsp&nbsp वार्ड नम्बर</p>
+			<p>&nbsp&nbsp गाउ/टोल</p>
+			<p>&nbsp&nbsp कर्मचारी निजको सम्बन्ध:</p>
+
+		</div>
+		<div class"col-sm-6">
+			<p>०३. अस्थायी ठेगाना: </p>
+			<p>&nbsp&nbsp अंचल: {{p.t_zone}}</p>
+			<p>&nbsp&nbsp जिल्ला {{p.t_disrict}}</p>
+			<p>&nbsp&nbsp गाउ/नगर: {{p.t_village}}</p>
+			<p>&nbsp&nbsp वार्ड नम्बर: {{p.t_wardno}}</p>
+			<p>&nbsp&nbsp गाउ/टोल: {{p.t_tole}}</p>
+			<p>&nbsp&nbsp ब्लाक नम्बर: {{p.t_blockno}}</p>
+			<p>०५  जन्मेको मिति:</p>
+			<p>०७  सेवा अवधि ३० वर्ष पुग्ने मिति:</p>
+			<p>०९  धर्म:</p>
+			<p>११  जाती:</p>
+			<p></p>
+			<p>१३  पति/पत्नीको पेशा:</p>
+			<p>१५  बाबुको संख्या:</p>
+			<p>१७  बाबुको पेशा:</p>
+			<p>१९  आमाको नाम:</p>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<p>२२  नियुक्तिको को विवरण</p>
+			<p>&nbsp&nbsp कार्यलयको नाम:</p>
+			<p>&nbsp&nbspपद:</p>
+			<p>&nbsp&nbspश्रेणी:</p>
+			<p>&nbsp&nbsp सेवा/समूह:</p>
+			<p>&nbsp&nbsp नियुक्त मिति:</p>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+		<p>माथि लेखिएको विवरण ठीक छ | सरकारी सेवाको निमित्त अयोग्य हुने गरी मलाई कुनै सजाय भएको छैन | कुनै कुरा झुठो लेखिएको वा  जानीजानी साँचो कुरा दबाउन लुकाउन उधेश्यले लेखिएको ठहरे कानुन बमोजिम सजाय स्वीकार गर्नेछु भनी सही छाप गर्ने: </p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4"><p>कर्मचारीको (बुडी औलाको छाप )</p></div>
+		<div class="col-sm-4"><p>दस्तखत </p></div>
+		<div class="col-sm-4"><p>प्रमाणित गर्ने प्रमुखको नाम</p></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4" >
+			<table border = "1px">
+				<tr >
+					<td height="200px" width="200px"></td>
+					<td height="200px" width="200px"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2">दाया</div>
+		<div class="col-sm-2">बाया</div>
+		<div class="col-sm-offset-4 col-sm-2">कार्यलयको छाप</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<p>जनशक्ति विकास तथा स्थानीय निकाय कर्मचारी अभिलेख शाखाले प्रयोग गर्ने:</p>
+			<hr>
+			<p>कर्मचारीको संकेत नम्बर: </p>
+			<p>५८ वर्ष पुग्ने मिति:</p>
+			<p>सेवा अवधि ३० वर्ष पुरा हुने मिति:</p>
+			<p>विभागीय प्रमुख वा अधिकार प्राप्त</p>
+			<p>अधिकृतको दस्तखत: </p>
+			<p>कार्यलयको छाप</p>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

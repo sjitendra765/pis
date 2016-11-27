@@ -1,0 +1,49 @@
+<div class="container" ng-controller="loginCntrl">
+  <style type="text/css">
+  .form-group{
+    width:40%;
+    margin-left: 25%;
+   
+  }
+    
+  </style>
+    <div class="alert alert-success" ng-show="showSuccessAlert">
+        <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>रेकोर्ड सफलतापुर्बक सुरक्षित भयो !</strong></div>
+    <form role="form" ng-submit = "loginBtn()">
+      <div class="form-group">
+        <label for="email">युजरको नाम</label>
+        <input type="text" ng-model="login.username" class="form-control" id="username" placeholder="युजरको नाम" />
+        <label for="password">पसवोर्ड</label>
+        <input type="password" class="form-control" ng-model="login.password" id="password" placeholder="पसवोर्ड" /> <br>
+      <button type="submit" class="btn btn-default" >भित्र पस्नुहोस</button>
+      <a href="#/register" >दर्ता गर्नुहोस</a>
+    </div>
+    </form>
+    <div>
+      <form class="form-group">
+      <h4> <b> पद खोजी गर्नुहोस </b> </h4>
+      <input type="text" class="form-control" placeholder=" तह" ng-model="padname"> <br>
+      <input type="checkbox" name="pad" value=""> पदको किसिम<br>
+      <input type="checkbox" name="pad" value="Car" > श्रेणी<br>
+      <input type="checkbox" name="pad" value="Bike">तह<br>
+      <input type="checkbox" name="pad" value="Car" >पद सिर्जना भएको मिति<br>
+      <input type="checkbox" name="pad" value="Bike"> साबिक पद<br>
+      <input type="checkbox" name="pad" value="Car" > पद संकेत नम्बर<br> भएको <br>
+      <button  class="btn btn-primary" ng-click="padkhoji()">खोज्नुहोस</button>
+    </form>
+    </div>
+    <div>
+      <form class="form-group">
+      <h4> <b> कर्मचारीको व्यैक्तिक विवरण खोज्नुहोस</b> </h4>
+      <input type="text" class="form-control" placeholder=" नाम" ng-model="karname"> <br>
+      <input type="checkbox" name="per" value="name"> कर्मचारीको नाम<br>
+      <input type="checkbox" name="per" value="taha" > तह<br>
+      <input type="checkbox" name="per" value="start_date"> नियुक्ति भएको मिति<br>
+      <input type="checkbox" name="per" value="date_of_birth" > जन्म मिति<br>
+      <input type="checkbox" name="per" value="taha"> तह<br>
+      <input type="checkbox" name="per" value="level" > श्रेणी<br>
+      <input type="checkbox" name="per" value="address"> ठेगाना<br>
+      <input type="checkbox" name="per" value="citizenno" > नागरिकता नम्बर<br> भएको <br>      <button type="submit" class="btn btn-primary" ng-click="karkhoji()">खोज्नुहोस्</button>
+    </form>
+    </div>
+  </div>

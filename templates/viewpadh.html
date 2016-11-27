@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-3"ng-hide="{{authen}}" >
+    <ul class="nav nav-pills nav-stacked">
+     <li class="active"><a href="#/viewpadh">पद खोजी गर्नुहोस</a></li>
+  <li ><a href="#/form1">कार्यालय विवरण</a></li>
+  <li ><a href="#/form2">पद दर्ता फाराम</a></li>
+
+  
+</ul>
+  
+</div>
+<div class="col-sm-9" ng-controller="viewAllpadh">
+	<br>
+	<div ng-hide="{{authen}}">
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>
+		<button class="btn btn-primary" go-click="/form3">नया कर्मचारी दर्ता गर्नुहोस्</button>
+		<button class="btn btn-primary" go-click="/form2">नया पद दर्ता गर्नुहोस्</button>
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<br>
+	<form class="from-group" >
+		<div>
+		<input class="form-control" ng-model = "search"placeholder="पद ताईप गनुहोस्" >
+
+		</div>
+		<table id="tarik" class="table" border="1px"> <tr>
+			<h5>ख ) कार्यालय दरबन्दी तेरिज:</h5> 
+				<th>सि न:</th>
+				<th>पढ्को किसिम</th>
+				<th>स्तर </th>
+				<th>सुरु पद मिति</th>
+				<th>सविक पढ्</th>
+				<th>थप</th>
+				<th>घट</th>
+				<th>खुद कायम</th>
+				<th>पढ् सन्केत न</th>
+				<th>कैफियत</th>
+				<th ng-hide="{{authen}}"></th>
+			</tr>
+			<tr ng-repeat="f in f1 | filter:search">
+				<td>{{f.S_no}}</td>
+				<td>{{f.pos_type}}</td>
+				<td>{{f.taha}}</td>
+				<td>{{f.start_date}}</td>
+				<td>{{f.sabik_padh}}</td>
+				<td>{{f.thap}}</td>				
+				<td>{{f.ghat}}</td>
+				<td>{{f.khud_kayam}}</td>
+				<td>{{f.padh_sanket_no}}</td>
+				<td>{{f.remarks}}</td>
+				<td ng-hide="{{authen}}"><button class="btn btn-info" id="add" ng-click="viewpad(f)">view</button><button class="btn btn-primary" id="add" ng-click="updatePad(f)">update</button><button class="btn btn-danger" id="add" ng-click="deletePad(f)">delete</button> </td>
+			</tr>
+			
+		</table>
+			</form>
+</div>
+</div>
+</div>

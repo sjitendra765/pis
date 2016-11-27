@@ -1,0 +1,346 @@
+<script type="text/javascript">
+     function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;          
+        }
+  </script>
+  <style type="text/css">
+  @media print{
+    .container{
+      margin-left :50px !important;
+      margin-right :100px !important;
+      margin-top :100px !important;
+      margin-bottom: 100px !important;
+    }
+  }
+  </style>
+<div ng-controller="viewrecord">
+  
+<div><input type="button" value="Print" onclick="javascript:printDiv('printablediv')" /></div>
+  <div id="printablediv">
+    <div id="printable">
+  <div class="container">
+    <div class="row">
+      <div class = "col-sm-12">
+  <div id="title">
+  <h4>वैयत्यिक विवरण</h4>
+  <p>नेपाल सरकार</p>
+  <p>ललितपुर जि. वि. स./महा/नगर./गा.वि.स. </p>
+  </div>
+
+  <div id="nametitle" class="row">
+
+    <div class="col-sm-6">
+      <p>स्थानीय निकाय कर्मचारीको पुरा नाम , थर: {{p.first_name}} {{p.midlle_name}} {{p.last_name}}</p>
+
+    </div>
+    <div class"col-sm-6"><img style='display:block; width:100px;height:100px;' id='base64image'                 
+       data-ng-src='data:image/jpg;base64,{{p.img_pic}}'> </div>
+
+  </div>
+  <div  class="row">
+
+    <div class="col-sm-6">
+      <p>०२ स्थायी ठेगाना:</p>
+      <p>&nbsp&nbsp अंचल: {{p.p_zone}}</p>
+      <p>&nbsp&nbsp जिल्ला: {{p.p_district}}</p>
+      <p>&nbsp&nbsp गाउ/नगर: {{p.p_village}}</p>
+      <p>&nbsp&nbsp वार्ड नम्बर: {{p.p_wardno}}</p>
+      <p>&nbsp&nbsp गाउ/टोल: {{p.p_tole}}</p>
+      <p>&nbsp&nbsp ब्लाक नम्बर: {{p.p_blockno}}</p>
+      <p>०४  घर भएको जिल्ला : {{p.p_district}}</p>
+      <p>०६  ५८ वर्ष उमेर पुग्ने मिति:{{p.date_58}}</p>
+      <p>०८  नागरिकता:{{p.citizenno}}</p>
+      <p>१०  लिङ्ग:{{p.sex}}</p>
+      <p>१२  विवाहित भए पति/पत्नीको नाम/:  श्री/श्रीमती {{p.h_firstname}}&nbsp {{p.h_middlename}}&nbsp{{p.h_lastname}}<br>&nbsp&nbsp&nbsp&nbsp</p>
+      <p>१४  छोराको संख्या: {{p.no_of_sons}}</p>
+      <p>१६  बाबुको नाम:{{p.f_firstname}}&nbsp {{p.f_middlename}}&nbsp{{p.f_lastname}}</p>
+      <p>१८  बाजेको नाम: {{p.g_firstname}}&nbsp {{p.g_middelname}}&nbsp{{p.g_lastname}}</p>
+      <p>२०  आमाको पेशा:{{p.m_occup}}</p>
+      <p>२१  इच्याएको व्यक्तिको नाम, थर:{{p.nominee_name}}</p>
+      <p>&nbsp&nbsp अंचल:{{p.n_zone}}</p>
+      <p>&nbsp&nbsp जिल्ला:{{p.n_district}}</p>
+      <p>&nbsp&nbsp गाउ/नगर:{{p.n_village}}</p>
+      <p>&nbsp&nbsp वार्ड नम्बर:{{p.n_wardno}}</p>
+      <p>&nbsp&nbsp गाउ/टोल:{{p.n_tole}}</p>
+      <p>&nbsp&nbsp कर्मचारी निजको सम्बन्ध:</p>
+
+    </div>
+    <div class"col-sm-6">
+      <p>०३. अस्थायी ठेगाना: </p>
+      <p>&nbsp&nbsp अंचल: {{p.t_zone}}</p>
+      <p>&nbsp&nbsp जिल्ला {{p.t_disrict}}</p>
+      <p>&nbsp&nbsp गाउ/नगर: {{p.t_village}}</p>
+      <p>&nbsp&nbsp वार्ड नम्बर: {{p.t_wardno}}</p>
+      <p>&nbsp&nbsp गाउ/टोल: {{p.t_tole}}</p>
+      <p>&nbsp&nbsp ब्लाक नम्बर: {{p.t_blockno}}</p>
+      <p>०५  जन्मेको मिति:{{p.date_of_birth}}</p>
+      <p>०७  सेवा अवधि ३० वर्ष पुग्ने मिति:{{p.date_30}}</p>
+      <p>०९  धर्म:{{p.religion}}</p>
+      <p>११  जाती:{{p.cast}}</p>
+      <p></p>
+      <p>१३  पति/पत्नीको पेशा:{{p.h_wife}}</p>
+      <p>१५  छोरीको संख्या:{{p.no_of_daughters}}</p>
+      <p>१७  बाबुको पेशा:{{p.f_occup}}</p>
+      <p>१९  आमाको नाम:{{p.m_firstname}}&nbsp {{p.m_middlename}}&nbsp{{p.m_lastname}}</p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <p>२२  नियुक्तिको को विवरण</p>
+      <p>&nbsp&nbsp कार्यलयको नाम:{{p.office_name}}</p>
+      <p>&nbsp&nbspपद:{{p.padh}}</p>
+      <p>&nbsp&nbspश्रेणी:{{p.level}}</p>
+      <p>&nbsp&nbsp सेवा/समूह:{{p.sewa_samuha}}</p>
+      <p>&nbsp&nbsp नियुक्त मिति:{{p.niyukta_miti}}</p>
+    </div>
+    <div class="col-sm-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <p>माथि लेखिएको विवरण ठीक छ | सरकारी सेवाको निमित्त अयोग्य हुने गरी मलाई कुनै सजाय भएको छैन | कुनै कुरा झुठो लेखिएको वा  जानीजानी साँचो कुरा दबाउन लुकाउन उधेश्यले लेखिएको ठहरे कानुन बमोजिम सजाय स्वीकार गर्नेछु भनी सही छाप गर्ने: </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"><p>कर्मचारीको (बुडी औलाको छाप )</p></div>
+    <div class="col-sm-4"><p>दस्तखत </p></div>
+    <div class="col-sm-4"><p>प्रमाणित गर्ने प्रमुखको नाम</p></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4" >
+      <table border = "1px">
+        <tr >
+          <td height="200px" width="200px"></td>
+          <td height="200px" width="200px"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">दाया</div>
+    <div class="col-sm-2">बाया</div>
+    <div class="col-sm-offset-4 col-sm-2">कार्यलयको छाप</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>जनशक्ति विकास तथा स्थानीय निकाय कर्मचारी अभिलेख शाखाले प्रयोग गर्ने:</p>
+      <hr>
+      <p>कर्मचारीको संकेत नम्बर: </p>
+      <p>५८ वर्ष पुग्ने मिति:</p>
+      <p>सेवा अवधि ३० वर्ष पुरा हुने मिति:</p>
+      <p>विभागीय प्रमुख वा अधिकार प्राप्त:</p>
+      <p>अधिकृतको दस्तखत: </p>
+      <p>कार्यलयको छाप</p>
+    </div>
+  </div>
+  <h4>सेवाको विवरण</h4>
+  <table class="table" border="1px">
+      <tr>
+        <th colspan = "6"> कर्मचारीको नाम :{{p.first_name}} {{p.midlle_name}} {{p.last_name}}</th>
+        <th colspan = "6">संकेत नम्बर :</th>
+      </tr>
+      <tr>
+        <td>स. नं.</td>
+        <td>तह</td>
+        <td>पद को नाम</td>
+        <td>श्रेणी</td>
+        <td>कार्यालयको नाम</td>
+        <td>नयाँ नियुक्ति</td>
+        <td>बहाली मिती</td>
+        <td>निर्णय मिती</td>
+        <td>तलब</td>
+        <td>भत्ता</td>
+        
+      </tr>      
+      <tr ng-repeat ="s in psewa">
+        <td>{{s.s_no}}</td>
+        <td>{{s.sttar}}</td>
+        <td>{{s.padh_name}}</td>
+        <td>{{s.e_level}}</td>
+        <td>{{s.s_office_name}}</td>
+        <td>{{s.new_recruit}}</td>
+        <td>{{s.bahali_miti}}</td>
+        <td>{{s.s.nirnaya_date}}</td>
+        <td>{{s.Salary}}</td>
+        <td>{{s.incentive}}</td>
+        
+      </tr>
+    </table>
+    <h4>शैक्षिक योग्यता,तालिम, सेमिनार सम्मेलन</h4>
+<table class="table" border="1px">
+      <tr>
+        <th colspan = "5"> कर्मचारीको नाम {{p.first_name}} {{p.midlle_name}} {{p.last_name}}</th>
+        <th colspan = "5">संकेत नम्बर </th>
+        
+      </tr>
+      <tr>
+        <td>स न.</td>
+        <td>सेर्टीफिकेट वा उपाधी</td>
+        <td>अध्धयनको बिषय</td>
+        <td colspan="2">अध्धयन अवधी</td>
+        <td>श्रेणी</td>
+        
+        <td colspan="2">शिक्षण संस्था</td>
+        <td>तालिम सेमिनार वा सम्मेलनको विवरण</td>
+        <td>कैफियत</td>
+        
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>देखि</td>
+        <td>सम्म</td>
+        <td></td>
+        <td>नाम</td>
+        <td>ठेगाना</td>
+        <td></td>
+        <td></td>
+        
+
+        
+      </tr>
+      
+      <tr ng-repeat = "ci in certiList">
+        <td>{{ci.s_no}}</td>
+        <td>{{ci.certificate_name}}</td>
+        <td>{{ci.certi_subject}}</td>
+        <td>{{ci.start_date}}</td>
+        <td>{{ci.end_date}}</td>
+        <td>{{ci.level}}</td>
+        <td>{{ci.certi_org_name}}</td>
+        <td>{{ci.certi_org_address}}</td>
+        <td>{{ci.seminar_training}}</td>
+        <td>{{ci.remarks}}</td>
+        
+      </tr>
+      <h4>विभागीय सजायको विवरण</h4>
+    </table>
+    <table class="table" border="1px">
+      <tr>
+        <th colspan = "5"> कर्मचारीको नाम:{{p.first_name}} {{p.midlle_name}} {{p.last_name}}</th>
+        <th colspan = "5">संकेत न.:</th>
+      </tr>
+      <tr>
+        <td>स न.</td>
+        <td colspan="2">सजायको प्रकार</td>
+                        
+        <td colspan="2">सजायको आदेश मिती</td>
+        <td colspan="3">पुनरावेदनको कार्यालयको नाम</td>
+        <td colspan="2">कैफियत</td>
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        
+        <td colspan="2">ठहर</td>
+        <td>मिती</td>
+        <td colspan="2"></td>
+      
+      </tr>
+     
+      <tr ng-repeat ="sy in sajaya">
+        <td>{{sy.s_no}}</td>
+        <td colspan="2">{{sy.punishment_type}}</td>
+        <td colspan="2">{{sy.punishment_date}}</td>
+        
+        <td colspan="2">{{sy.appeal_name}}</td>
+        <td>{{sy.appeal_date}}</td>
+        <td colspan="2">{{sy.remarks}}</td>     
+        
+      </tr>
+    </table>
+    <h4>बिदा र औषधी उपचार विवरण</h4>
+    <table border="1px" >
+      <tr>
+        <th>विवरण </th>
+        <th colspan="3">घर बिदा</th>
+        <th colspan="3">विरामी विदा</th>
+        <th colspan="3"> प्रसुती विदा / प्रसुती स्याहार विदा</th>
+        <th colspan="3">अध्ययन विदा</th>
+        <th colspan="3">असाधारण विदा</th>
+        <th colspan="3"> गयल विदा</th>
+        <th>उपचार खर्च</th>
+        <th>कैफियत</th>
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>जम्मा</td>
+        <td>खर्च</td>
+        <td>बाँकी</td>
+        <td>लिएको मिती</td>
+        <td></td>
+        
+      </tr>
+      
+      <tr ng-repeat ="b in bida">
+        <td>{{b.discription}}</td>
+        <td>{{b.h_total}}</td>
+        <td>{{b.h_taken}}</td>
+        <td>{{b.h_left}}</td>
+        <td>{{b.sick_total}}</td>
+        <td>{{b.sick_taken}}</td>
+        <td>{{b.sick_left}}</td>
+        <td>{{b.paternity_total}}</td>
+        <td>{{b.paternity_taken}}</td>
+        <td>{{b.paternity_left}}</td>
+        <td>{{b.education_total}}</td>
+        <td>{{b.education_taken}}</td>
+        <td>{{b.education_left}}</td>
+        <td>{{b.emergency_total}}</td>
+        <td>{{b.emergency_taken}}</td>
+        <td>{{b.emergency_left}}</td>
+        <td>{{b.absent_total}}</td>
+        <td>{{b.absent_taken}}</td>
+        <td>{{b.absent_left}}</td>
+        <td>{{b.treatment_date}}</td>
+        <td>{{b.remarks}}</td>
+        
+      </tr>
+    </table>
+    <div class="row">
+      <div class="col-sm-12"  ng-repeat="inn in img">
+        <br>
+       <img style='display:block;height:500px;width:1000px '  id='base64image'                 
+       data-ng-src='data:image/jpg;base64,{{inn}}'>
+      </div>
+    </div>
+</div>
+</div>
+</div/>
+</div>

@@ -1,0 +1,181 @@
+<div class="container" ng-controller="personalCntrl">
+  <div class="row" ng-controller = "updatePerson">
+  <div class="col-sm-2">
+     <ul class="nav nav-pills nav-stacked" ng-hide="ifUpdate">
+  <li><a href="#/viewpdetail">कर्मचारी सूची</a></li>
+  <li  class="active"><a href="#/form3">कर्मचारी विवरण दर्ता</a></li>
+  <li><a href="#/form4">सेवा विवरण</a></li>
+  <li><a href="#/form5">शैक्षिक योग्यता,सेमिनार</a></li>
+  <li><a href="#/form6">विभागीय सजाय</a></li>
+  <li><a href="#/form7">बिदा औसधी उपचार</a></li>
+</ul>
+  </div>
+
+<div class="col-sm-10" >
+	<br>
+	<div >
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>		
+		
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<div >
+		<h4>फाराम नं. १</h4>
+		<div ng-show="ifUpdate" ng-show="showP">
+			<h4><b>पद छनोट गर्नुहोस</b></h4>
+			<select class ="form-control" ng-model="s.choice" ng-options="x.pos_type as x.pos_type for x in padh"></select> <br>
+			<button class="btn btn-primary" ng-click="showPform()">अर्को चरण</button>
+		</div>
+
+		<form method ="post" class="from-group" enctype="multipart/form-data" ng-hide="showP">
+			<div> <h3>संकेत नं</h3> <input class="form-control" ng-model="p.sanket_no"></div>
+			<table class="table">
+				<h3>स्थानीय निकाय कर्मचारीको पुरा नाम र थर</h3>
+				<tr>
+					<td>पहिलो नाम <br> <input class="form-control" ng-model="p.first_name" name="first_name" > </td>
+					<td>बिचको नाम  <br> <input class="form-control" ng-model="p.midlle_name" name="midlle_name"> </td>
+					<td>अन्तिम नाम <br> <input class="form-control" ng-model="p.last_name"name = "last_name" > </td>
+				</tr>
+				</table>
+				<table class="table">
+				<tr>
+					<h3>स्थायी ठेगाना</h3>
+					<td>अंचल <br> <input class="form-control" ng-model="p.p_zone" name="p_zone" > </td>
+					<td>जिल्ला<br> <input class="form-control" ng-model="p.p_district" name="p_district" > </td>
+					<td>गाउ/ नगर<br> <input class="form-control" ng-model="p.p_village" name="p_village"> </td>
+				</tr>
+				<tr>
+					<td> वार्ड नम्बर<br> <input class="form-control" ng-model="p.p_wardno" name="p_wardno"> </td>
+					<td> गाउ/टोल<br> <input class="form-control" ng-model="p.p_tole" name="p_tole"> </td>
+					<td> ब्लक नम्बर  <br> <input class="form-control" ng-model="p.p_blockno" name="p_blockno"> </td>
+				</tr>
+				</table>
+				<table class="table">
+				
+				<h3>अस्थायी ठेगाना</h3>
+				<tr>
+					<td>अंचल<br> <input class="form-control" ng-model="p.t_zone" name="t_zone"> </td>
+					<td>जिल्ला<br> <input class="form-control" ng-model="p.t_disrict" name="t_district"> </td>
+					<td>गाउ /नगर<br> <input class="form-control" ng-model="p.t_village" name="t_village"> </td>
+				</tr>
+				<tr>
+					<td> वार्ड नम्बर<br> <input class="form-control" ng-model="p.t_wardno" name="t_wardno"> </td>
+					<td> गाउ/टोल <br> <input class="form-control" ng-model="p.t_tole" name="t_tole"> </td>
+					<td>ब्लक नम्बर <br> <input class="form-control" ng-model="p.t_blockno" name="t_blockno"> </td>
+				</tr>
+			</table>
+			<table class="table">
+				<h3>जन्म मिती</h3>
+				<tr>
+					<td>बि स<br><div class="form-inline"> <select id = "dob_day" ng-model ="p.dob_day"name ="dob_day" class="form-control"><option value="">दिन</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> <option value="16">16</option> <option value="17">17</option> <option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option> <option value="24">24</option> <option value="25">25</option> <option value="26">26</option> <option value="27">27</option> <option value="28">28</option> <option value="29">29</option> <option value="30">30</option> <option value="31">31</option> <option value="32">32</option> </select><select id = "dob_day" ng-model="p.dob_month"name ="dob_month" class="form-control"><option value="">महिना</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option></select> 
+						<select id="dob_year" ng-model="p.dob_year" name="dob_year" class="form-control"><option value="">बर्ष</option> <option value="2000">2000</option> <option value="2001">2001</option> <option value="2002">2002</option> <option value="2003">2003</option> <option value="2004">2004</option> <option value="2005">2005</option> <option value="2006">2006</option> <option value="2007">2007</option> <option value="2008">2008</option> <option value="2009">2009</option> <option value="2010">2010</option> <option value="2011">2011</option> <option value="2012">2012</option> <option value="2013">2013</option> <option value="2014">2014</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> <option value="2019">2019</option> <option value="2020">2020</option> <option value="2021">2021</option> <option value="2022">2022</option> <option value="2023">2023</option> <option value="2024">2024</option> <option value="2025">2025</option> <option value="2026">2026</option> <option value="2027">2027</option> <option value="2028">2028</option> <option value="2029">2029</option> <option value="2030">2030</option> <option value="2031">2031</option> <option value="2032">2032</option> <option value="2033">2033</option> <option value="2034">2034</option> <option value="2035">2035</option> <option value="2036">2036</option> <option value="2037">2037</option> <option value="2038">2038</option> <option value="2039">2039</option> <option value="2040">2040</option> <option value="2041">2041</option> <option value="2042">2042</option> <option value="2043">2043</option> <option value="2044">2044</option> <option value="2045">2045</option> <option value="2046">2046</option> <option value="2047">2047</option> <option value="2048">2048</option> <option value="2049">2049</option> <option value="2050">2050</option> <option value="2051">2051</option> <option value="2052">2052</option> <option value="2053">2053</option> <option value="2054">2054</option> <option value="2055">2055</option> <option value="2056">2056</option> <option value="2057">2057</option> <option value="2058">2058</option> <option value="2059">2059</option> <option value="2060">2060</option> </select>
+					 </div></td>
+					<td> ई. स. <br> <input class="form-control" ng-model="p.dob_ad" name="dob_ad"> </td>
+					<td>लिङ <br>  <select id="sex" ng-model="p.sex" name="sex" class="form-control" ng-model="" name="sex">
+        <option value="male">पुरुष</option> 
+        <option value="female">महिला</option>
+        <option value="others">अन्य</option> </td>
+				</tr>
+			</table>
+			<table class="table">
+				<h3>नागरिकता</h3>
+				<tr>
+					<td>नागरिकता नम्बर<br> <input class="form-control" ng-model="p.citizenno" name="citizenno" > </td>
+					<td>५८ बर्ष उमेर पुग ने  मिती <br> <input class="form-control" ng-model="p.date_58" name="date_58" > </td>
+					<td>सेवा अवधी ३० बर्ष पुग्ने मिती<br> <input class="form-control" ng-model="p.date_30" name="date_30"> </td>
+				</tr>				
+			</table>
+			<table class="table">
+				<h3>पती /पत्नी</h3>
+				<tr>
+					<td>पहिलो नाम<br> <input class="form-control" ng-model="p.h_firstname" name="h_firstname"> </td>
+					<td> बिचको नाम <br> <input class="form-control" ng-model="p.h_middlename" name="h_middlename"> </td>
+					<td>अन्तिम नाम<br> <input class="form-control" ng-model="p.h_lastname" name="h_lastname"> </td>
+					<td>पती/पत्निको पेशा<br> <input class="form-control" ng-model="p.h_occup" name="h_occup"> </td>
+				</tr>				
+			</table>
+			<table class="table">
+				<h3>बुवाको नाम</h3>
+				<tr>
+					<td>पहिलो नाम<br> <input class="form-control" ng-model="p.f_firstname" name="f_firstname"> </td>
+					<td> बिचको नाम<br> <input class="form-control" ng-model="p.f_middlename" name="f_middlename"> </td>
+					<td>अन्तिम नाम<br> <input class="form-control" ng-model="p.f_lastname" name="f_lastname"> </td>
+					<td> बुवाको पेशा<br> <input class="form-control" ng-model="p.f_occup" name="f_occup"> </td>
+				</tr>				
+			</table>
+			<table class="table">
+				<h3> आमाको नाम </h3>
+				<tr>
+					<td>पहिलो नाम <br> <input class="form-control" ng-model="p.m_firstname" name="m_firstname"> </td>
+					<td>बिचको नाम <br> <input class="form-control" ng-model="p.m_middlename" name="m_middlename"> </td>
+					<td>अन्तिम नाम<br> <input class="form-control" ng-model="p.m_lastname" name="m_lastname"> </td>
+					<td>आमाको पेशा<br> <input class="form-control" ng-model="p.m_occup" name="m_occup"> </td>
+				</tr>				
+			</table>
+			<table class="table">
+				<h3>हजुर बुवाको नाम </h3>
+				<tr>
+					<td>पहिलो नाम<br> <input class="form-control" ng-model="p.g_firstname" name="g_firstname"> </td>
+					<td> बिचको नाम <br> <input class="form-control" ng-model="p.g_middlename" name="g_middlename"> </td>
+					<td>अन्तिम नाम<br> <input class="form-control" ng-model="p.g_lastname" name="g_lastname"> </td>
+				</tr>				
+			</table>
+			<table class="table">
+				<h3>छोरा/छोरी </h3>
+				<tr>
+					<td>छोराको सङ्ख्या <br> <input class="form-control" ng-model="p.no_of_sons" name="no_of_sons"> </td>
+					<td>छोरीको सङ्ख्या<br> <input class="form-control" ng-model="p.no_of_daughter" name="no_of_daughter"> </td>					
+				</tr>				
+			</table>
+			<table class="table">
+				<h3>अन्य जानकारी </h3>
+				<tr>
+					<td>जात<br> <input class="form-control"ng-model="p.cast" name="cast"> </td>
+					<td> धर्म <br> <input class="form-control" ng-model="p.religion" name="religion"> </td>
+					
+				</tr>				
+			</table>
+			<table class="table">				
+				<h3>इच्छाईएको नाम,थर</h3> <input class="form-control"ng-model="p.nominee_name" name= "nominee_name">
+				<tr>
+					<td>अन्न्चल<br> <input class="form-control" ng-model="p.n_zone"name= "n_zone"> </td>
+					<td> जिल्ला<br> <input class="form-control" ng-model="p.n_district" name= "n_district"> </td>
+					<td>गाउ  नगर<br> <input class="form-control" ng-model="p.n_village" name="n_village"> </td>
+					<td>कर्मचारीको निज संगको सम्बन्ध <br> <input class="form-control" ng-model="p.nominee_rel" name="nominee_rel"></td>
+				</tr>
+				<tr>
+					<td>वार्ड नम्बर<br> <input class="form-control" ng-model="p.n_wardno"name= "n_wardno"> </td>
+					<td> गाउ तोल <br> <input class="form-control"ng-model="p.n_tole" name= "n_tole"> </td>
+					<td>ब्लोक्क नम्बर <br> <input class="form-control" ng-model ="p.n_blockno" name= "n_blockno"> </td>
+				</tr>
+			</table>
+			<table class="table">
+				<h3>नियुक्त्ति विवरण</h3>
+				<tr>
+				<td> कार्यालयको नाम<br> <input class="form-control" ng-model="p.office_name"></td>
+				<td> पद<br> <input class="form-control" ng-model="p.padh"></td>
+				<td>श्रेणी <br> <input class="form-control" ng-model="p.level"></td>
+				</tr>
+				<tr>
+					<td> सेवा/समूह<br> <input class="form-control" ng-model="p.sewa_samuha"></td>
+					<td> नियुक्त मिती<br> <input class="form-control" name="p.niyukta_miti"></td>
+				</tr>
+			</table>
+			<table class="table">
+				<tr>
+					<td>फोटो अपलोड गर्नुहोस <input type="file" ngf-select="onFileSelect($file)" ng-model="file" ngf-pattern="'image/*'"  name="फोटो अपलोड गर्नुहोस"> </td>
+					
+				</tr>
+			</table>
+			<table class="table">
+				<tr>
+					<td>कर्मचारी दरबन्दी (स्थायी/अस्थायी/करार) <input class="form-control" ng-model="p.typep"> </td>
+					<td>सरुवा भएको कार्यालय <input class="form-control" ng-model="p.loffice"> </td>
+				</tr>
+			</table>
+			<button class="btn btn-primary" ng-show="ifUpdate" name = "submit" ng-click="pinfoSave()"> सुरक्षित गर्नुहोस्</button>
+			<button class="btn btn-primary" ng-hide="ifUpdate" name = "submit" ng-click="pinfoUpdate()"> अपडेट</button>
+		</form>
+	</div>
+	</div>
+</div>
+</div>

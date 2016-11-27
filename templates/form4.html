@@ -1,0 +1,74 @@
+<div class="container" ng-controller="form4Cntrl">
+  <div class="row">
+  <div class="col-sm-2">
+     <ul class="nav nav-pills nav-stacked" ng-hide="ifUpdate">
+  <li ><a href="#/viewpdetail">कर्मचारी सूची</a></li>
+  <li><a href="#/form3">कर्मचारी विवरण दर्ता</a></li>
+  <li class="active"><a href="#/form4">सेवा विवरण</a></li>
+  <li><a href="#/form5">शैक्षिक योग्यता,सेमिनार</a></li>
+  <li><a href="#/form6">विभागीय सजाय</a></li>
+  <li><a href="#/form7">बिदा औसधी उपचार</a></li>
+</ul>
+  </div>
+
+<div class="col-sm-10" >
+	<div >
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>
+		
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<h4>फाराम नं. २ - सेवाको विवरण</h4>
+	<form method ="post" class="from-group" >
+		<table class="table" border="1px">
+			<tr>
+				<th colspan = "6"> कर्मचारीको नाम <input class="form-control" ng-model="employee_name" name="s_empname"></th>
+				<th colspan = "6">संकेत नम्बर <input class="form-control" ng-model="sewa.sanket_no" name="sanket_no"></th>
+			</tr>
+			<tr>
+				<td>स न.</td>
+				<td>तह</td>
+				<td>पढ को नाम</td>
+				<td>श्रेणी</td>				
+				<td>नया नियुक्ति</td>
+				<td>बहाली मिती</td>
+				<td>बढुवा मिति</td>
+				<td>निर्णय मिती</td>
+				<td>तलब</td>
+				<td>भत्ता</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input class="form-control" ng-model="sewa.s_no" name="s_no"></td>
+				<td><input class="form-control" ng-model="sewa.sttar" name="sttar"></td>
+				<td><input class="form-control" ng-model="sewa.padh_name" name="padh_name"></td>
+				<td><input class="form-control" ng-model="sewa.e_level" name="e_level"></td>
+				<td><input class="form-control" ng-model="sewa.new_recruit" name="new_recruit"></td>
+				<td><input class="form-control" ng-model="sewa.bahali_miti" name="bahali_miti"></td>
+				<td><input class="form-control" ng-model="sewa.nirnaya_date" name="nirnaya_date"></td>
+				<td><input class="form-control" ng-model="sewa.baduwa_miti"></td>
+				<td><input class="form-control" ng-model="sewa.Salary" name="Salary"></td>
+				<td><input class="form-control" ng-model="sewa.incentive" name="incentive"></td>
+				<td><button class="btn btn-primary"  name="submit" ng-click="sewaSave(1)" ng-show ="upSewa">थप्नुस</button><button class="btn btn-primary" ng-click="updateSewa()" ng-hide ="upSewa"> अपडेट</button></td>
+			</tr>
+			<tr ng-repeat ="s in psewa">
+				<td>{{s.s_no}}</td>
+				<td>{{s.sttar}}</td>
+				<td>{{s.padh_name}}</td>
+				<td>{{s.e_level}}</td>				
+				<td>{{s.new_recruit}}</td>
+				<td>{{s.bahali_miti}}</td>
+				<td>{{s.nirnaya_date}}</td>
+				<td>{{s.baduwa_miti}}</td>
+				<td>{{s.Salary}}</td>
+				<td>{{s.incentive}}</td>
+				<td> <button class="btn btn-primary" ng-click="editSewa(s)"> सच्याउनुहोस्</button></td>
+			</tr>
+		</table>
+
+		
+		<button class="btn btn-primary"  name="submit" ng-click="sewaSave(2)">सुरक्षित गर्नुस र फाराम ३ भर्नुस</button>
+		
+	</form>
+</div>
+</div>
+</div>

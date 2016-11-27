@@ -1,0 +1,27 @@
+<div class="container" ng-controller="imageUpload1">
+  <div class="row">
+  <div class="col-sm-3">
+     <ul class="nav nav-pills nav-stacked">
+  <li ><a href="#/viewpdetail">कर्मचारी सूची</a></li>
+  <li><a href="#/form3">कर्मचारी विवरण दर्ता</a></li>
+  <li><a href="#/form4">सेवा विवरण</a></li>
+  <li><a href="#/form5">शैक्षिक योग्यता,सेमिनार</a></li>
+  <li><a href="#/form6">विभागीय सजाय</a></li>
+  <li class="active"><a href="#/form7">बिदा औसधी उपचार</a></li>
+</ul>
+  </div>
+
+<div class="col-sm-9" ng-controller="imageUpCntrl">
+  <div>डकुमेन्टहरु अपलोड गर्नुस</div>
+	<form ng-app="fileUpload"  name="form" enctype="multipart/form-data">
+  
+  			<input type="file" multiple="multiple" ngf-select="onFileSelect($file)" ng-model="file" ngf-pattern="'image/*'"  name="सबै डाकुमेंट अपलोड गर्नुहोस"> </td>
+        <div ng-repeat="i in img">
+        <span>{{i.image_name}}</span> <span id="searchclear" class="glyphicon glyphicon-remove-circle" ng-click="removeDocs(i.id)"></span>
+      </div>
+        <button class="btn btn-primary" go-click="/form6"> सुरक्षित गर्नुस र फाराम ४ मा जानुस </button>
+      </form>
+
+	 </div>
+	</div>
+</div>

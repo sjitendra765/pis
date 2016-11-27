@@ -1,0 +1,73 @@
+<div class="container" ng-controller="form6Cntrl">
+  <div class="row">
+  <div class="col-sm-2">
+     <ul class="nav nav-pills nav-stacked" ng-hide="ifUpdate">
+  <li><a href="#/viewpdetail">कर्मचारी सूची</a></li>
+  <li><a href="#/form3">कर्मचारी विवरण दर्ता</a></li>
+  <li><a href="#/form4">सेवा विवरण</a></li>
+  <li><a href="#/form5">शैक्षिक योग्यता,सेमिनार</a></li>
+  <li  class="active"><a href="#/form6">विभागीय सजाय</a></li>
+  <li><a href="#/form7">बिदा औसधी उपचार</a></li>
+</ul>
+  </div>
+<div class="col-sm-10" >
+	<div >
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>
+		<button class="btn btn-primary" go-click="/form3">नया कर्मचारी दर्ता गर्नुहोस्</button>
+		
+	<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<h4>फाराम नं. ४ - विभागीय सजायको विवरण </h4>
+	<form method ="post"  class="from-group" >
+		<table class="table" border="1px">
+			<tr>
+				<th colspan = "5"> कर्मचारीको नाम<input class="form-control" ng-model="employee_name" name="s_employeename"></th>
+				<th colspan = "5">संकेत नं.<input class="form-control" ng-model="punish.sanket_no" name="sanket_no"></th>
+			</tr>
+			<tr>
+				<td>स. नं.</td>
+				<td colspan="2">सजायको प्रकार</td>
+												
+				<td colspan="2">सजायको आदेश मिती</td>
+				<td colspan="3">पुनरावेदनको कार्यालयको नाम</td>
+				<td colspan="2">कैफियत</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2"></td>
+				<td colspan="2"></td>
+				
+				<td colspan="2">ठहर</td>
+				<td>मिती</td>
+				<td colspan="2"></td>
+<td></td>				
+			</tr>
+			<tr>
+				<td><input class="form-control" ng-model="punish.s_no" name="s_no"></td>
+				<td colspan="2"><input class="form-control" ng-model="punish.punishment_type" name="punishment_type"></td>
+				<td colspan="2"><input class="form-control" ng-model="punish.punishment_date" name = "punishment_date"></td>
+				
+				<td colspan="2"><input class="form-control" ng-model="punish.appeal_name"name="appeal_name"></td>
+				<td><input class="form-control" ng-model="punish.appeal_date" name="appeal_date"></td>
+				<td colspan="2"><input class="form-control" ng-model="punish.remarks" name="remarks"></td>	
+				<td><button class="btn btn-primary" name="submit" ng-show="upSewa" ng-click="sajayaSave(1)">थप्नुस</button><button class="btn btn-primary" ng-hide="upSewa" name="submit" ng-click="sajayaUpdate()">अपडेट</button></td>		
+				
+			</tr>
+			<tr ng-repeat ="sy in sajaya">
+				<td>{{sy.s_no}}</td>
+				<td colspan="2">{{sy.punishment_type}}</td>
+				<td colspan="2">{{sy.punishment_date}}</td>
+				
+				<td colspan="2">{{sy.appeal_name}}</td>
+				<td>{{sy.appeal_date}}</td>
+				<td colspan="2">{{sy.remarks}}</td>			
+				<td><button class="btn btn-primary" name="submit" ng-click="sajayaEdit(sy)">सच्याउनुहोस्</button></td>
+			</tr>
+		</table>
+		
+		<button class="btn btn-primary" name="submit" ng-click="sajayaSave(2)">सुरक्षित गर्नुस र फाराम ५ मा जानुस</button>
+	</form>
+</div>
+</div>
+</div>

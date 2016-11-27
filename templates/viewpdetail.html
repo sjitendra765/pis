@@ -1,0 +1,69 @@
+<div class="container" ng-controller = "viewPerson">
+  <div class="row">
+  <div class="col-sm-0" ng-hide="{{authen}}">
+     <ul class="nav nav-pills nav-stacked" ng-hide="ifUpdate">
+  <li class="active"><a href="#/viewpdetail">कर्मचारी सूची</a></li>
+  <li><a href="#/form3">कर्मचारी विवरण दर्ता</a></li>
+  <li><a href="#/form4">सेवा विवरण</a></li>
+  <li><a href="#/form5">शैक्षिक योग्यता,सेमिनार</a></li>
+  <li><a href="#/form6">विभागीय सजाय</a></li>
+  <li><a href="#/form7">बिदा औसधी उपचार</a></li>
+</ul>
+  </div>
+
+<div class="col-sm-12" >
+	<br>
+	<div ng-hide="{{authen}}">
+		<button class="btn btn-primary" go-click="/list">होममा जानुहोस्</button>
+		<button class="btn btn-primary" go-click="/form3">नया कर्मचारी दर्ता गर्नुहोस्</button>
+		<button class="btn btn-primary" go-click="/form2">नया पद दर्ता गर्नुहोस्</button>
+		<button class="btn btn-danger" go-click="/logout">बाहिर निस्किनुहोस</button>
+	</div>
+	<br>
+		<div>
+		<input class="form-control" ng-model = "search" placeholder="नाम टाइप गनुहोस्">
+		<button class="btn btn-link" ng-click="exportToExcel('#table1')">रिपोर्ट प्रिन्ट गर्नुहोस</button>
+		</div>
+	<h2>कर्मचारी विवरण</h2>	
+	<table class="table" id="table1">
+		<tr>
+			<th>संकेत नं.</th>
+			<th>कर्मचारीको नाम</th>
+			<th>पद</th>
+			<th>तह</th>
+			<th>नागरिता नं.</th>
+			<th>जन्म मिति</th>
+			<th>जिल्ला</th>
+			<th>सेवा/समूह</th>
+			<th>नियुक्त मिति</th>
+			<th>५८ वर्ष पुग्ने मिति</th>
+			<th>जात</th>
+			<th>सरुवा भएको कार्यालय</th>
+			<th>कर्मचारी दरबन्दी</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="c in p | filter:search">
+			<td>{{c.sanket_no}}</td>
+			<td>{{c.first_name}} {{c.midlle_name}} {{c.last_name}}</td>
+			<td>{{c.padh}}</td>
+			<td>{{c.level}}</td>
+			<td>{{c.ctizenno}}</td>
+			<td>{{c.date_of_Birth}} </td>
+			<td>{{c.date_58}}</td>
+			<td>{{c.p_district}}</td>
+			<td>{{c.sewa_samuha}}</td>
+			<td>{{c.niyukta_miti}}</td>
+			<td>{{c.cast}}</td>
+			<td>{{c.loffice}}</td>
+			<td>{{c.typep}}</td>
+			<td ng-hide="{{authen}}"><button class="btn btn-info" ng-click="viewdata(c)">view</button>
+				<a class="btn btn-primary" ng-click="updateinfo('/form3',c)">update</a>
+				<button class="btn btn-danger" ng-click="deleteP(c)" >Delete</button>
+			</td>
+			
+		</tr>
+
+	</table>
+	</div>
+</div>
+</div>
